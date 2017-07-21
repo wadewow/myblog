@@ -1,0 +1,34 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/edit.css' %}">
+    <title>edit your article</title>
+</head>
+<body>
+<div>
+    <div class="container">
+        <form action="{% url 'blog:edit_action' %}" method="post">
+        {% csrf_token %}
+        <label for=""><span>文章标题:</span></label>
+        <input type="hidden" name="article_id" value="{{ article.id | default:'0'}}">
+
+            <div class="title-box">
+                <input type="text" name="title" id="title" value="{{ article.title }}">
+            </div>
+            <div class="content-box">
+                <div style="display:inline-block;float: left;">
+                    <label for=""><span>文章内容:</span></label>
+                </div>
+                <div style="display: inline-block;"></div>
+                <textarea name="content" id="content">{{ article.content }}</textarea>
+            </div>
+        <input type="submit" value="提交">
+</form>
+<a href="{% url 'blog:blog_home' %}">返回博客首页</a>
+    </div>
+</div>
+
+</body>
+</html>

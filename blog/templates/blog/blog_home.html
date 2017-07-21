@@ -1,0 +1,25 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <meta charset="UTF-8">
+    <title>Blog</title>
+</head>
+<body>
+<div id="home_nav">
+    <div class="container">
+        <h5 id="home_title"> My Article</h5>
+    </div>
+</div>
+
+{% for articles in articles %}
+
+    <a href="{% url 'blog:blog_content' articles.id %}"><h4>{{ articles.title }}</h4></a>
+
+{% endfor %}
+<a href="{% url 'blog:edit_page' 0 %}">NEW ARTICLE</a>
+</body>
+</html>

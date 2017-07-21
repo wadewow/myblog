@@ -1,0 +1,13 @@
+body{
+    margin: 0;
+}
+
+#home_nav{
+    height: 200px;
+}
+#home_block{
+    margin: auto;
+}
+#home_title{
+    color: #FCA205;
+}

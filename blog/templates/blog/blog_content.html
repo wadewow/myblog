@@ -1,0 +1,28 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/content.css' %}">
+    <title>content</title>
+</head>
+<body>
+<div class="page-header">
+    <div class="container">
+        <h1>{{ article_content.title }}</h1>
+    </div>
+</div>
+<div>
+    <div class="container">
+        <h2 class="page-content">{{ article_content.content }}</h2>
+    </div>
+</div>
+<div>
+    <div class="container">
+        <div class="container-box">
+            <a href="{% url 'blog:edit_page' article_content.id %}">修改文章</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
